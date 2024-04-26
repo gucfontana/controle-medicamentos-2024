@@ -39,4 +39,21 @@ internal class RepositorioMedicamentos
     {
         return medicamentos.Find(m => m.Nome == nome);
     }
+
+    public static void VerificarEstoque()
+    {
+        if (medicamentos.Count == 0)
+        {
+            Console.WriteLine("Nenhum medicamento cadastrado!");
+            return;
+        }
+
+        foreach (var medicamento in medicamentos) Console.WriteLine(medicamento);
+    }
+
+    public static void AtualizarQuantidadeMedicamento(string nome, int quantidade)
+    {
+        var medicamento = medicamentos.Find(m => m.Nome == nome);
+        if (medicamento != null) medicamento.Quantidade = quantidade;
+    }
 }

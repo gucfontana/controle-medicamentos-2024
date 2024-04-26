@@ -9,12 +9,37 @@ namespace ControleMedicamentos.ConsoleApp;
 
 internal class Program
 {
+    public const string UsuarioCorreto = "admin";
+    public const string SenhaCorreta = "123";
+
     public static void Main(string[] args)
     {
         while (true)
         {
-            Console.WriteLine("Bem-vindo ao Controle de Medicamentos dos Postos de Saúde de Lages\n");
-            Console.WriteLine("0 - Tela de Funcionarios");
+            Console.WriteLine("Digite seu nome de usuario:");
+            var usuarioCorreto = Console.ReadLine();
+            Console.WriteLine("Digite a senha de acesso:");
+            var senhaCorreta = Console.ReadLine();
+
+            if (senhaCorreta == SenhaCorreta & usuarioCorreto == UsuarioCorreto)
+            {
+                Console.Clear();
+                Console.WriteLine("Login feito com sucesso!\nBem-vindo ao Controle de Medicamentos dos Postos de Saúde de Lages\n");
+                MostrarMenu();
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Senha incorreta. Tente novamente.");
+            }
+        }
+    }
+
+    private static void MostrarMenu()
+    {
+        while (true)
+        {
+            Console.WriteLine("0 - Tela de Funcionários");
             Console.WriteLine("1 - Tela de Medicamentos");
             Console.WriteLine("2 - Tela de Pacientes");
             Console.WriteLine("3 - Tela de Requisições");
@@ -53,10 +78,5 @@ internal class Program
             Console.ReadLine();
             Console.Clear();
         }
-    }
-
-    private static void ConsoleClear()
-    {
-        ConsoleClear();
     }
 }
