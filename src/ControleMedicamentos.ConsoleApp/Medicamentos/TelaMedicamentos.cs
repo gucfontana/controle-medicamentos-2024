@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ControleMedicamentos.ConsoleApp.Medicamentos;
+﻿namespace ControleMedicamentos.ConsoleApp.Medicamentos;
 
 internal class TelaMedicamentos
 {
     public static void TelaCadastroMedicamentos()
     {
         Console.WriteLine("Cadastro de Medicamentos\n");
+        Console.WriteLine("0 - Verificar Estoque");
         Console.WriteLine("1 - Cadastrar Medicamento");
         Console.WriteLine("2 - Atualizar Medicamento");
         Console.WriteLine("3 - Excluir Medicamento");
@@ -22,6 +16,10 @@ internal class TelaMedicamentos
 
         switch (opcao)
         {
+            case "0":
+                ConsoleClear();
+                RepositorioMedicamentos.VerificarEstoque();
+                break;
             case "1":
                 ConsoleClear();
                 CadastrarMedicamento();

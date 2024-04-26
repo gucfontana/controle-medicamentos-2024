@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ControleMedicamentos.ConsoleApp.Funcionarios;
+﻿namespace ControleMedicamentos.ConsoleApp.Funcionarios;
 
 public class TelaFuncionario
 {
@@ -95,5 +89,7 @@ public class TelaFuncionario
             Console.WriteLine("Funcionário já cadastrado!");
             return;
         }
+
+        RepositorioFuncionarios.CadastrarFuncionario(new Funcionario(cpf, nome, funcao, senha));
     }
 }

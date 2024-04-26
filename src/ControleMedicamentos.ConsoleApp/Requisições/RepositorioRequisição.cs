@@ -1,15 +1,8 @@
-﻿using ControleMedicamentos.ConsoleApp.Pacientes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ControleMedicamentos.ConsoleApp.Requisições;
+﻿namespace ControleMedicamentos.ConsoleApp.Requisições;
 
 public class RepositorioRequisição
 {
-    private static List<Requisição> requisicoes = new();
+    private static readonly List<Requisição> requisicoes = new();
     private static Requisição[] requisicaoArray = new Requisição[100];
 
     public static void CadastrarRequisição(Requisição requisicao)

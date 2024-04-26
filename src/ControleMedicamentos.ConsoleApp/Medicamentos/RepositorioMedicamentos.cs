@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ControleMedicamentos.ConsoleApp.Medicamentos;
+﻿namespace ControleMedicamentos.ConsoleApp.Medicamentos;
 
 internal class RepositorioMedicamentos
 {
-    private static List<Medicamento> medicamentos = new();
-    private static Medicamento[] medicamentosArray = new Medicamento[0];
+    private static readonly List<Medicamento> medicamentos = new();
+    private static Medicamento[] medicamentosArray = new Medicamento[100];
 
     public static void CadastrarMedicamento(Medicamento medicamento)
     {
@@ -37,11 +31,6 @@ internal class RepositorioMedicamentos
         return medicamentos;
     }
 
-    public static Medicamento BuscarMedicamento(string nome)
-    {
-        return medicamentos.Find(m => m.Nome == nome);
-    }
-
     public static void VerificarEstoque()
     {
         if (medicamentos.Count == 0)
@@ -50,12 +39,9 @@ internal class RepositorioMedicamentos
             return;
         }
 
-        foreach (var medicamento in medicamentos) Console.WriteLine(medicamento);
-    }
-
-    public static void AtualizarQuantidadeMedicamento(string nome, int quantidade)
-    {
-        var medicamento = medicamentos.Find(m => m.Nome == nome);
-        if (medicamento != null) medicamento.Quantidade = quantidade;
+        medicamentos.ForEach(m =>
+        {
+            if (m.Quantidade < 10) Console.WriteLine(m);
+        });
     }
 }

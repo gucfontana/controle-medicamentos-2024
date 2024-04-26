@@ -1,37 +1,48 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using ControleMedicamentos.ConsoleApp.Funcionarios;
+﻿using ControleMedicamentos.ConsoleApp.Funcionarios;
 using ControleMedicamentos.ConsoleApp.Medicamentos;
 using ControleMedicamentos.ConsoleApp.Pacientes;
 using ControleMedicamentos.ConsoleApp.Requisições;
 
 namespace ControleMedicamentos.ConsoleApp;
 
-internal class Program
+public class Program
 {
-    public const string UsuarioCorreto = "admin";
-    public const string SenhaCorreta = "123";
+    public static List<Funcionario> funcionario = new();
 
     public static void Main(string[] args)
     {
+        CadastrarAdmin();
+
+        AutenticarFuncionario();
+    }
+
+    private static void CadastrarAdmin()
+    {
+        funcionario.Add(new Funcionario("Admin", "Admin", "Admin", "Admin"));
+    }
+
+    private static void AutenticarFuncionario()
+    {
         while (true)
         {
-            Console.WriteLine("Digite seu nome de usuario:");
-            var usuarioCorreto = Console.ReadLine();
+            Console.WriteLine("Digite seu CPF:");
+            var cpf = Console.ReadLine();
             Console.WriteLine("Digite a senha de acesso:");
-            var senhaCorreta = Console.ReadLine();
+            var senha = Console.ReadLine();
 
-            if (senhaCorreta == SenhaCorreta & usuarioCorreto == UsuarioCorreto)
+            var funcionarioEncontrado = funcionario.Find(f => f.Cpf == cpf && f.Senha == senha);
+
+            if (funcionarioEncontrado != null)
             {
                 Console.Clear();
-                Console.WriteLine("Login feito com sucesso!\nBem-vindo ao Controle de Medicamentos dos Postos de Saúde de Lages\n");
+                Console.WriteLine(
+                    "Login feito com sucesso!\nBem-vindo ao Controle de Medicamentos dos Postos de Saúde de Lages\n");
                 MostrarMenu();
                 break;
             }
-            else
-            {
-                Console.WriteLine("Senha incorreta. Tente novamente.");
-            }
+
+            Console.Clear();
+            Console.WriteLine("CPF ou senha inválidos. Tente novamente.");
         }
     }
 

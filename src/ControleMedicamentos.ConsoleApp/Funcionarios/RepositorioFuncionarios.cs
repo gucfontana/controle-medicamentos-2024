@@ -1,15 +1,13 @@
-﻿using ControleMedicamentos.ConsoleApp.Funcionarios;
-using ControleMedicamentos.ConsoleApp.Medicamentos;
-
-public class RepositorioFuncionarios
+﻿public static class RepositorioFuncionarios
 {
-    private static List<Funcionario> funcionarios = new();
-    private static Funcionario[] funcionariosArray = new Funcionario[0];
+    private static readonly List<Funcionario> funcionarios = new();
+    private static Funcionario[] funcionariosArray = new Funcionario[100];
 
     public static void CadastrarFuncionario(Funcionario funcionario)
     {
         funcionarios.Add(funcionario);
         funcionariosArray = funcionarios.ToArray();
+        Console.WriteLine("Funcionário cadastrado com sucesso!");
     }
 
     public static void ListarFuncionarios()
@@ -51,19 +49,11 @@ public class RepositorioFuncionarios
         }
 
         Console.WriteLine("Digite o nome do funcionário: ");
-        var nome = Console.ReadLine();
+        funcionario.Nome = Console.ReadLine();
         Console.WriteLine("Digite a função do funcionário: ");
-        var funcao = Console.ReadLine();
+        funcionario.Funcao = Console.ReadLine();
         Console.WriteLine("Digite a senha do funcionário: ");
-        var senha = Console.ReadLine();
-        Console.WriteLine("Digite a data de admissão (DD/MM/AAAA): ");
-        var dataAdmissao = DateTime.Parse(Console.ReadLine());
-        Console.WriteLine("Digite o salário: ");
-        var salario = decimal.Parse(Console.ReadLine());
-
-        funcionario.Nome = nome;
-        funcionario.Funcao = funcao;
-        funcionario.Senha = senha;
+        funcionario.Senha = Console.ReadLine();
 
         Console.WriteLine("Funcionário atualizado com sucesso!");
     }
@@ -76,7 +66,6 @@ public class RepositorioFuncionarios
         if (funcionario == null)
         {
             Console.WriteLine("Funcionário não encontrado!");
-            return;
         }
     }
 }
