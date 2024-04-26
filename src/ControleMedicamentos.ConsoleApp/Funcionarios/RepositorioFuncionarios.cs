@@ -1,12 +1,15 @@
 ﻿using ControleMedicamentos.ConsoleApp.Funcionarios;
+using ControleMedicamentos.ConsoleApp.Medicamentos;
 
 public class RepositorioFuncionarios
 {
     private static List<Funcionario> funcionarios = new();
+    private static Funcionario[] funcionariosArray = new Funcionario[0];
 
-    public static void AdicionarFuncionario(Funcionario funcionario)
+    public static void CadastrarFuncionario(Funcionario funcionario)
     {
         funcionarios.Add(funcionario);
+        funcionariosArray = funcionarios.ToArray();
     }
 
     public static void ListarFuncionarios()

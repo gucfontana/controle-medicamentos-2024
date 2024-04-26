@@ -71,7 +71,7 @@ public class TelaRequisições
         var dataRequisicao = Console.ReadLine();
 
         var requisicao = new Requisição(nomeMedicamento, quantidade, cpf, dataRequisicao);
-        RepositorioRequisição.AdicionarRequisição(requisicao);
+        RepositorioRequisição.CadastrarRequisição(requisicao);
         Console.WriteLine("Requisição cadastrada com sucesso!");
     }
 

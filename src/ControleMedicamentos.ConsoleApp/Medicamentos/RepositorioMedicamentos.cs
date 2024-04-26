@@ -9,10 +9,12 @@ namespace ControleMedicamentos.ConsoleApp.Medicamentos;
 internal class RepositorioMedicamentos
 {
     private static List<Medicamento> medicamentos = new();
+    private static Medicamento[] medicamentosArray = new Medicamento[0];
 
     public static void CadastrarMedicamento(Medicamento medicamento)
     {
         medicamentos.Add(medicamento);
+        medicamentosArray = medicamentos.ToArray();
     }
 
     public static void AtualizarMedicamento(Medicamento medicamento)

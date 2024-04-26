@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleMedicamentos.ConsoleApp.Medicamentos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,13 @@ namespace ControleMedicamentos.ConsoleApp.Pacientes;
 public class RepositorioPaciente
 {
     private static List<Paciente> pacientes = new();
+    private static Paciente[] pacientesArray = new Paciente[100];
+
+    public static void CadastrarPaciente(Paciente paciente)
+    {
+        pacientes.Add(paciente);
+        pacientesArray = pacientes.ToArray();
+    }
 
     public static void CadastrarPaciente()
     {

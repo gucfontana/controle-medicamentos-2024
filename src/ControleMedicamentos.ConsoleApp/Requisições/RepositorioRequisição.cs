@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleMedicamentos.ConsoleApp.Pacientes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,12 @@ namespace ControleMedicamentos.ConsoleApp.Requisições;
 public class RepositorioRequisição
 {
     private static List<Requisição> requisicoes = new();
+    private static Requisição[] requisicaoArray = new Requisição[100];
 
-    public static void AdicionarRequisição(Requisição requisicao)
+    public static void CadastrarRequisição(Requisição requisicao)
     {
         requisicoes.Add(requisicao);
+        requisicaoArray = requisicoes.ToArray();
     }
 
     public static void ListarRequisições()
