@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using ControleMedicamentos.ConsoleApp.Funcionarios;
 using ControleMedicamentos.ConsoleApp.Medicamentos;
 using ControleMedicamentos.ConsoleApp.Pacientes;
 using ControleMedicamentos.ConsoleApp.Requisições;
@@ -12,6 +14,7 @@ internal class Program
         while (true)
         {
             Console.WriteLine("Bem-vindo ao Controle de Medicamentos dos Postos de Saúde de Lages\n");
+            Console.WriteLine("0 - Tela de Funcionarios");
             Console.WriteLine("1 - Tela de Medicamentos");
             Console.WriteLine("2 - Tela de Pacientes");
             Console.WriteLine("3 - Tela de Requisições");
@@ -21,6 +24,10 @@ internal class Program
 
             switch (opcao)
             {
+                case "0":
+                    Console.Clear();
+                    TelaFuncionario.ExibirTelaFuncionario();
+                    break;
                 case "1":
                     Console.Clear();
                     TelaMedicamentos.TelaCadastroMedicamentos();

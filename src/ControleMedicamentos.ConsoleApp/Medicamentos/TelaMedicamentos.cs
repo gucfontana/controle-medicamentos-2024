@@ -85,6 +85,17 @@ internal class TelaMedicamentos
         foreach (var medicamento in medicamentos)
             Console.WriteLine(
                 $"Nome: {medicamento.Nome} - Descrição: {medicamento.Descricao} - Quantidade: {medicamento.Quantidade}");
+
+        Console.WriteLine($"\nTotal de medicamentos cadastrados: {medicamentos.Count}");
+
+        var totalMedicamentosEstoque = medicamentos.Sum(m => m.Quantidade);
+        Console.WriteLine($"Total de medicamentos em estoque: {totalMedicamentosEstoque}");
+
+        var medicamentoMaiorQuantidade = medicamentos.OrderByDescending(m => m.Quantidade).FirstOrDefault();
+        Console.WriteLine($"Medicamento com a maior quantidade em estoque: {medicamentoMaiorQuantidade.Nome} - Quantidade: {medicamentoMaiorQuantidade.Quantidade}");
+
+        var medicamentoMenorQuantidade = medicamentos.OrderBy(m => m.Quantidade).FirstOrDefault();
+        Console.WriteLine($"Medicamento com a menor quantidade em estoque: {medicamentoMenorQuantidade.Nome} - Quantidade: {medicamentoMenorQuantidade.Quantidade}");
     }
 
     private static void ConsoleClear()
