@@ -25,6 +25,8 @@ public class Program
     {
         while (true)
         {
+            Console.WriteLine("Bem vindo ao sistema de Controle de Medicamentos!\n");
+            Console.WriteLine("Faça o login para continuar... \n");
             Console.WriteLine("Digite seu CPF:");
             var cpf = Console.ReadLine();
             Console.WriteLine("Digite a senha de acesso:");
@@ -62,7 +64,7 @@ public class Program
             {
                 case "0":
                     Console.Clear();
-                    TelaFuncionario.ExibirTelaFuncionario();
+                    TelaFuncionarios.TelaFuncionario();
                     break;
                 case "1":
                     Console.Clear();

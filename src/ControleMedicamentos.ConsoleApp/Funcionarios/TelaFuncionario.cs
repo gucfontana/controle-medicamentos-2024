@@ -1,8 +1,8 @@
 ﻿namespace ControleMedicamentos.ConsoleApp.Funcionarios;
 
-public class TelaFuncionario
+public class TelaFuncionarios
 {
-    public static void ExibirTelaFuncionario()
+    public static void TelaFuncionario()
     {
         while (true)
         {

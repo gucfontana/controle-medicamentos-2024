@@ -12,9 +12,4 @@ internal class Medicamento
     public string Nome { get; set; }
     public string Descricao { get; set; }
     public int Quantidade { get; set; }
-
-    public override string ToString()
-    {
-        return $"Nome: {Nome}, Descrição: {Descricao}, Quantidade: {Quantidade}";
-    }
 }

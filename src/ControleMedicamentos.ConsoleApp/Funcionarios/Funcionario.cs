@@ -12,9 +12,4 @@
     public string Nome { get; set; }
     public string Funcao { get; set; }
     public string Senha { get; set; }
-
-    public override string ToString()
-    {
-        return $"CPF: {Cpf}, Nome: {Nome}, Função: {Funcao}";
-    }
 }
